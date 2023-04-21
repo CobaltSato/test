@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSON Decode Example</title>
+  </head>
+  <body>
+    <script>
+      // "http://127.0.0.1:5500/static/index.html??param=%7B'winner':'b','match':[[%7B'subject':'a','event':'attack','amount':29%7D,%7B'subject':'b','event':'attack','amount':26%7D,%7B'subject':'a','event':'miss','amount':0%7D,%7B'subject':'b','event':'attack','amount':28%7D,%7B'subject':'a','event':'attack','amount':32%7D,%7B'subject':'b','event':'critical-attack','amount':80%7D,%7B'subject':'b','event':'win','amount':39%7D],[%7B'subject':'b','event':'attack','amount':84%7D,%7B'subject':'a','event':'attack','amount':3%7D,%7B'subject':'b','event':'attack','amount':82%7D,%7B'subject':'b','event':'win','amount':97%7D],[%7B'subject':'a','event':'win-by-default','amount':100%7D]]%7D";
+      const url = window.location.href;
+      const searchParams = new URLSearchParams(url.split("?")[1]);
+      const jsonString = decodeURIComponent(url.split("param=")[1]).replace(
+        /'/g,
+        '"'
+      );
+      const jsonObject = JSON.parse(jsonString);
+      console.log(jsonObject);
+    </script>
+  </body>
+</html>
